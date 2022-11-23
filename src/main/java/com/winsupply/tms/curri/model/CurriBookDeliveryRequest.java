@@ -5,10 +5,18 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class CurriBookDeliveryRequest {
-    curriBookDeliveryRequestData data;
+
+    CurriContact dropoffContact;
+    CurriContact pickupContact;
+    CurriContact pointOfContact;
+    CurriDeliveryMeta deliveryMeta;
+    List<CurriItem> manifestItems;
+    String scheduledAt; // optional
 }
