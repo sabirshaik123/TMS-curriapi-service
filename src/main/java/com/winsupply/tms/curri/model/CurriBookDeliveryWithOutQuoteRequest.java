@@ -1,17 +1,16 @@
 package com.winsupply.tms.curri.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Data
-@Builder
+@EqualsAndHashCode(callSuper=true)
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class CurriBookDeliveryWithOutQuoteRequest extends CurriBookDeliveryRequest{
 
-    boolean skipQuote = true;
+    boolean skipQuote;
     CurriAddress origin;
     CurriAddress destination;
     String priority;
