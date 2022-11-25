@@ -14,6 +14,18 @@ public class DbConstants {
             "){ " +
             "deliveryQuote (" +
             "destination: $destination, origin: $origin, deliveryMethod: $deliveryMethod, priority: $priority) " +
-            "{id fee  distance duration pickupDuration deliveryMethod }" +
+            "deliveryQuote " +
+            "(destination: $destination, origin: $origin, deliveryMethod: $deliveryMethod, priority: $priority) " +
+            "{id fee distance duration pickupDuration deliveryMethod }" +
+            "}";
+    public static String CURRI_DELIVERY_QUOTES_QUERY = "query " +
+            "DeliveryQuotes (" +
+            "$origin: AddressInput!, " +
+            "$destination: AddressInput!, " +
+            "$priority: String" +
+            "){ " +
+            "deliveryQuotes " +
+            "(destination: $destination, origin: $origin, priority: $priority) " +
+            "{id fee distance duration pickupDuration deliveryMethod }" +
             "}";
 }
