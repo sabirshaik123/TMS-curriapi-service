@@ -7,14 +7,32 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class CurriGetQuoteRequest {
     CurriAddress origin;
     CurriAddress destination;
     String priority;
-    String deliveryMethod;
-    List<CurriItem> manifestItems;
+
+    public CurriAddress getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(CurriAddress origin) {
+        this.origin = origin;
+    }
+
+    public CurriAddress getDestination() {
+        return destination;
+    }
+
+    public void setDestination(CurriAddress destination) {
+        this.destination = destination;
+    }
+
+    public String getPriority() {
+        return priority;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
 }
