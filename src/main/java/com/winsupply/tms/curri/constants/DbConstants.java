@@ -12,8 +12,6 @@ public class DbConstants {
             "$deliveryMethod: String!, " +
             "$priority: String" +
             "){ " +
-            "deliveryQuote (" +
-            "destination: $destination, origin: $origin, deliveryMethod: $deliveryMethod, priority: $priority) " +
             "deliveryQuote " +
             "(destination: $destination, origin: $origin, deliveryMethod: $deliveryMethod, priority: $priority) " +
             "{id fee distance duration pickupDuration deliveryMethod }" +
