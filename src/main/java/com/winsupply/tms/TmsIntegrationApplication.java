@@ -2,6 +2,7 @@ package com.winsupply.tms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -20,22 +21,6 @@ public class TmsIntegrationApplication {
 	}
 
 
-	/*
-	@Bean
-	public Docket apiDocket() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.apiInfo(apiInfo())
-				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.winsupply.tms"))
-				.paths(PathSelectors.any())
-				.build();
-	}
 
-	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder()
-				.title("Example API")
-				.version("1.0")
-				.build();
-	}*/
 
 }

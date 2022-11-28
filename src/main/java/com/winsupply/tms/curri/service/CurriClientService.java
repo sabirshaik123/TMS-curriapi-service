@@ -21,38 +21,11 @@ import java.util.*;
 @Service
 public class CurriClientService implements TmsClientService {
 
-//    @Value("${curri.baseUrl}")
-//    private String curriBaseUrl;
-//    @Value("${curri.userId}")
-//    private String curriUserId;
-//    @Value("${curri.apiKey}")
-//    private String curriApikey;
-
-    private String curriBaseUrl = "https://api.curri.com/graphql";
-    private String curriUserId = "user_M6DJ3AUJYN";
-    private String curriApikey =  "d5df96e3-e484-4f66-9b3f-01b3bb09b284";
-
+    @Autowired
     private HttpGraphQlClient curriGraphQlClient = null;
 
-    private void loadCurriGraphQlClient(){
-        WebClient webClient = WebClient.builder()
-                .baseUrl(curriBaseUrl)
-                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .build();
-        curriGraphQlClient = HttpGraphQlClient.builder(webClient)
-                .headers(headers -> headers.setBasicAuth(curriUserId, curriApikey))
-                .build();
-    }
-
-    public HttpGraphQlClient getCurriGraphQlClient() {
-        if(curriGraphQlClient == null) {
-            loadCurriGraphQlClient();
-        }
-        return curriGraphQlClient;
-    }
-
-    public ClientGraphQlResponse getCurriDeliveryQuotes(Map<String, Object> data) {
-        return getCurriGraphQlClient()
+   public ClientGraphQlResponse getCurriDeliveryQuotes(Map<String, Object> data) {
+        return curriGraphQlClient
                 .document(DbConstants.CURRI_DELIVERY_QUOTE_QUERY)
                 .variables(data)
                 .execute()
@@ -81,7 +54,7 @@ public class CurriClientService implements TmsClientService {
             query = DbConstants.CURRI_DELIVERY_QUOTES_QUERY;
         }
 
-        ClientGraphQlResponse graphQlResponse = getCurriGraphQlClient()
+        ClientGraphQlResponse graphQlResponse = curriGraphQlClient
                 .document(query)
                 .variables(variables)
                 .execute()
