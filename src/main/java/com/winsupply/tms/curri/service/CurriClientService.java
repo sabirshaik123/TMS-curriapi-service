@@ -3,26 +3,19 @@ package com.winsupply.tms.curri.service;
 import com.winsupply.tms.contracts.GetQuoteRequestBody;
 import com.winsupply.tms.contracts.GetQuoteResponseBody;
 import com.winsupply.tms.curri.constants.DbConstants;
-import com.winsupply.tms.curri.model.CurriGetQuoteResponse;
 import com.winsupply.tms.service.TmsClientService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.graphql.client.ClientGraphQlResponse;
 import org.springframework.graphql.client.HttpGraphQlClient;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
 
-import java.math.BigDecimal;
 import java.util.*;
 
 @Service
 public class CurriClientService implements TmsClientService {
 
     @Autowired
-    private HttpGraphQlClient curriGraphQlClient = null;
+    private HttpGraphQlClient curriGraphQlClient;
 
    public ClientGraphQlResponse getCurriDeliveryQuotes(Map<String, Object> data) {
         return curriGraphQlClient

@@ -35,7 +35,6 @@ public class Config {
         HttpGraphQlClient httpGraphQlClient =  HttpGraphQlClient.builder(webClient)
                 .headers(headers -> headers.setBasicAuth(curriUserId, curriApikey))
                 .build();
-        System.out.println(" HttpGraphQlClient :::"+httpGraphQlClient);
         return httpGraphQlClient;
     }
 }
