@@ -70,12 +70,12 @@ public class CurriClientService implements TmsClientService {
         variables.put("destination",requestBody.getDestination());
         if(requestBody.getPriority() != null)
             variables.put("priority",requestBody.getPriority());
-        if(requestBody.getManifestItems() != null)
-            variables.put("manifestItems",requestBody.getManifestItems());
 
         String query = "";
         if(requestBody.getDeliveryMethod() != null) {
             variables.put("deliveryMethod", requestBody.getDeliveryMethod());
+            if(requestBody.getManifestItems() != null)
+                variables.put("manifestItems",requestBody.getManifestItems());
             query = DbConstants.CURRI_DELIVERY_QUOTE_QUERY;
         }else{
             query = DbConstants.CURRI_DELIVERY_QUOTES_QUERY;

@@ -10,10 +10,11 @@ public class DbConstants {
             "$origin: AddressInput!, " +
             "$destination: AddressInput!, " +
             "$deliveryMethod: String!, " +
-            "$priority: String" +
+            "$priority: String, " +
+            "$manifestItems: [ManifestItemInput]" +
             "){ " +
             "deliveryQuote " +
-            "(destination: $destination, origin: $origin, deliveryMethod: $deliveryMethod, priority: $priority) " +
+            "(destination: $destination, origin: $origin, deliveryMethod: $deliveryMethod, priority: $priority, manifestItems: $manifestItems) " +
             "{id fee distance duration pickupDuration deliveryMethod }" +
             "}";
     public static String CURRI_DELIVERY_QUOTES_QUERY = "query " +
