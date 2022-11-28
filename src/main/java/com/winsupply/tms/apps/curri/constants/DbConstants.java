@@ -1,4 +1,4 @@
-package com.winsupply.tms.curri.constants;
+package com.winsupply.tms.apps.curri.constants;
 
 public class DbConstants {
 

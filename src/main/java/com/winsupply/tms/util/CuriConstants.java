@@ -1,6 +1,6 @@
 package com.winsupply.tms.util;
 
-import com.winsupply.tms.curri.model.CurriGetQuoteRequest;
+import com.winsupply.tms.apps.curri.model.CurriGetQuoteRequest;
 
 public class CuriConstants {
 

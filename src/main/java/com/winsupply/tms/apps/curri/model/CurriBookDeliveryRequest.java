@@ -1,4 +1,4 @@
-package com.winsupply.tms.curri.model;
+package com.winsupply.tms.apps.curri.model;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;

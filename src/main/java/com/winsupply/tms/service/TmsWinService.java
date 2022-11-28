@@ -2,7 +2,7 @@ package com.winsupply.tms.service;
 
 import com.winsupply.tms.contracts.GetQuoteRequestBody;
 import com.winsupply.tms.contracts.GetQuoteResponseBody;
-import com.winsupply.tms.curri.service.CurriClientService;
+import com.winsupply.tms.apps.curri.service.CurriClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

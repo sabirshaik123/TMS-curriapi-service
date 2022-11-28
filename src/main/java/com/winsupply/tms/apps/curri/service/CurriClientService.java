@@ -1,8 +1,8 @@
-package com.winsupply.tms.curri.service;
+package com.winsupply.tms.apps.curri.service;
 
 import com.winsupply.tms.contracts.GetQuoteRequestBody;
 import com.winsupply.tms.contracts.GetQuoteResponseBody;
-import com.winsupply.tms.curri.constants.DbConstants;
+import com.winsupply.tms.apps.curri.constants.DbConstants;
 import com.winsupply.tms.service.TmsClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.client.ClientGraphQlResponse;

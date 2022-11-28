@@ -1,4 +1,4 @@
-package com.winsupply.tms.curri.model;
+package com.winsupply.tms.apps.curri.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,7 +1,7 @@
 package com.winsupply.tms.contracts;
 
-import com.winsupply.tms.curri.model.CurriAddress;
-import com.winsupply.tms.curri.model.CurriItem;
+import com.winsupply.tms.apps.curri.model.CurriAddress;
+import com.winsupply.tms.apps.curri.model.CurriItem;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
