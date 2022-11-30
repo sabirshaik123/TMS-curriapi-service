@@ -1,5 +1,7 @@
 package com.winsupply.tms.controller;
 
+import com.winsupply.tms.contracts.BookDeliveryRequestBody;
+import com.winsupply.tms.contracts.BookDeliveryResponseBody;
 import com.winsupply.tms.contracts.GetQuoteRequestBody;
 import com.winsupply.tms.contracts.GetQuoteResponseBody;
 import com.winsupply.tms.service.TmsWinService;
@@ -23,4 +25,9 @@ public class TmsIntegrationController {
         return tmsWinService.getDeliveryQuote(appName, requestBody);
     }
 
+    @PostMapping("/bookDelivery")
+    public BookDeliveryResponseBody bookDelivery(@RequestParam String appName,
+                                              @RequestBody BookDeliveryRequestBody requestBody){
+        return tmsWinService.bookDelivery(appName, requestBody);
+    }
 }

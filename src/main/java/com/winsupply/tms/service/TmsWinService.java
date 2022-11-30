@@ -1,5 +1,7 @@
 package com.winsupply.tms.service;
 
+import com.winsupply.tms.contracts.BookDeliveryRequestBody;
+import com.winsupply.tms.contracts.BookDeliveryResponseBody;
 import com.winsupply.tms.contracts.GetQuoteRequestBody;
 import com.winsupply.tms.contracts.GetQuoteResponseBody;
 import com.winsupply.tms.apps.curri.service.CurriClientService;
@@ -37,6 +39,13 @@ public class TmsWinService {
         }
     }
 
-
-
+    public BookDeliveryResponseBody bookDelivery(String appName, BookDeliveryRequestBody requestBody) {
+        TmsClientService tmsClientService = getClientSevice(appName);
+        if(tmsClientService == null){
+            // TODO Exception
+            return null;
+        }else{
+            return tmsClientService.bookDelivery(requestBody);
+        }
+    }
 }
