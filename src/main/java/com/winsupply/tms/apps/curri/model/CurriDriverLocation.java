@@ -5,13 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CurriContact {
-    String name;
-    String company;
-    String emailAddress;
-    String phoneNumber;
+public class CurriDriverLocation {
+    BigDecimal latitude;
+    BigDecimal longitude;
 }

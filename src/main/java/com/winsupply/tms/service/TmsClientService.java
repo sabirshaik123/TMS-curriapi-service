@@ -12,4 +12,6 @@ public interface TmsClientService {
     public List<GetQuoteResponseBody> getDeliveryQuote(GetQuoteRequestBody requestBody);
 
     public BookDeliveryResponseBody bookDelivery(BookDeliveryRequestBody requestBody);
+
+    public List<BookDeliveryResponseBody> listDeliveries();
 }

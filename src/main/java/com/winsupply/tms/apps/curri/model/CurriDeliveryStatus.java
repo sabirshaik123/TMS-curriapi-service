@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CurriContact {
+public class CurriDeliveryStatus {
     String name;
-    String company;
-    String emailAddress;
-    String phoneNumber;
+    String code;
 }

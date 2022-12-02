@@ -86,4 +86,15 @@ public class CurriClientService implements TmsClientService {
         return graphQlResponse;
     }
 
+
+    @Override
+    public List<BookDeliveryResponseBody> listDeliveries(){
+        List<BookDeliveryResponseBody> graphQlResponse = curriGraphQlClient
+                .document(DbConstants.CURRI_LIST_DELIVERY_QUERY)
+                .retrieve("deliveries")
+                .toEntityList(BookDeliveryResponseBody.class)
+                .block();
+        return graphQlResponse;
+    };
+
 }

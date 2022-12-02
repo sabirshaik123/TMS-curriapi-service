@@ -30,4 +30,9 @@ public class TmsIntegrationController {
                                               @RequestBody BookDeliveryRequestBody requestBody){
         return tmsWinService.bookDelivery(appName, requestBody);
     }
+
+    @PostMapping("/deliveries")
+    public List<BookDeliveryResponseBody> deliveries(@RequestParam String appName){
+        return tmsWinService.listDeliveries(appName);
+    };
 }

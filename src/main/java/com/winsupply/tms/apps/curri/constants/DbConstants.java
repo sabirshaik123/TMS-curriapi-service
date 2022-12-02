@@ -50,5 +50,22 @@ public class DbConstants {
             "} ) { " +
                 "id, price, createdAt, deliveryMethod, deliveredAt " +
             "} }";
+    public static String CURRI_LIST_DELIVERY_QUERY =
+            "query { " +
+            "deliveries { " +
+                "id " +
+                "createdAt " +
+                "distance " +
+                "price " +
+                "estimatedTravelTime " +
+                "deliveryMethod " +
+                "deliveredAt " +
+                "deliveryMeta { dropoffNote pickupNote poNumber orderNumber } " +
+                "deliveryStatus { name code } " +
+                "origin { name addressLine1 addressLine2 city state postalCode latitude longitude } " +
+                "destination { name addressLine1 addressLine2 city state postalCode latitude longitude } " +
+                "driver { firstName lastName phoneNumber profileImageUrl } " +
+                "images " +
+            "} }";
 
 }

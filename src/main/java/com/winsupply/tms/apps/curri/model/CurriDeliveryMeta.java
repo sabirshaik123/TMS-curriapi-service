@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 public class CurriDeliveryMeta {
     String poNumber;
     String orderNumber;
+    String bolNumber;
     String pickupNote;
+    String dropoffNote;
     CurriCustomerData customerData;
 }

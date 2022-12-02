@@ -48,4 +48,14 @@ public class TmsWinService {
             return tmsClientService.bookDelivery(requestBody);
         }
     }
+
+    public List<BookDeliveryResponseBody> listDeliveries(String appName){
+        TmsClientService tmsClientService = getClientSevice(appName);
+        if(tmsClientService == null){
+            // TODO Exception
+            return null;
+        }else{
+            return tmsClientService.listDeliveries();
+        }
+    };
 }
