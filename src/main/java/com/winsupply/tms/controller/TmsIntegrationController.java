@@ -6,14 +6,12 @@ import com.winsupply.tms.contracts.QuoteRequest;
 import com.winsupply.tms.contracts.Quote;
 import com.winsupply.tms.exceptions.InvalidClientException;
 import com.winsupply.tms.service.TmsWinService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
+
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequiredArgsConstructor
 public class TmsIntegrationController {
@@ -36,7 +34,7 @@ public class TmsIntegrationController {
         return tmsWinService.bookDelivery(appName, requestBody);
     }
 
-    @PostMapping("/deliveries")
+    @GetMapping("/deliveries")
     public List<Delivery> deliveries(
             @RequestParam String appName)
             throws InvalidClientException {
