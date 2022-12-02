@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CurriDriver {
     String firstName;
-    Integer lastName;
+    String lastName;
     String phoneNumber;
     String profileImageUrl;
     CurriDriverLocation lastKnownLocation;
