@@ -5,6 +5,7 @@ import com.winsupply.tms.contracts.BookDeliveryResponseBody;
 import com.winsupply.tms.contracts.GetQuoteRequestBody;
 import com.winsupply.tms.contracts.GetQuoteResponseBody;
 import com.winsupply.tms.apps.curri.service.CurriClientService;
+import com.winsupply.tms.exceptions.InvalidClientException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +17,7 @@ public class TmsWinService {
     @Autowired
     private CurriClientService curriClientService;
 
-
-    private TmsClientService getClientSevice(String appName){
+    private TmsClientService getClientSevice(String appName) throws InvalidClientException {
         TmsClientService tmsClientService = null;
         switch (appName){
             case "curri":
@@ -25,37 +25,30 @@ public class TmsWinService {
                 break;
             case "uber":
                 break;
+            case "fedEx":
+                break;
+            default:
+                break;
+        }
+        if(tmsClientService == null) {
+            throw new InvalidClientException();
         }
         return tmsClientService;
     }
 
-    public List<GetQuoteResponseBody> getDeliveryQuote(String appName, GetQuoteRequestBody requestBody) {
-        TmsClientService tmsClientService = getClientSevice(appName);
-        if(tmsClientService == null){
-            // TODO Exception
-            return null;
-        }else{
-            return tmsClientService.getDeliveryQuote(requestBody);
-        }
+    public List<GetQuoteResponseBody> getDeliveryQuote(String appName, GetQuoteRequestBody requestBody)
+            throws InvalidClientException {
+        return getClientSevice(appName).getDeliveryQuote(requestBody);
     }
 
-    public BookDeliveryResponseBody bookDelivery(String appName, BookDeliveryRequestBody requestBody) {
-        TmsClientService tmsClientService = getClientSevice(appName);
-        if(tmsClientService == null){
-            // TODO Exception
-            return null;
-        }else{
-            return tmsClientService.bookDelivery(requestBody);
-        }
+    public BookDeliveryResponseBody bookDelivery(String appName, BookDeliveryRequestBody requestBody)
+            throws InvalidClientException{
+        return getClientSevice(appName).bookDelivery(requestBody);
     }
 
-    public List<BookDeliveryResponseBody> listDeliveries(String appName){
-        TmsClientService tmsClientService = getClientSevice(appName);
-        if(tmsClientService == null){
-            // TODO Exception
-            return null;
-        }else{
-            return tmsClientService.listDeliveries();
-        }
-    };
+    public List<BookDeliveryResponseBody> listDeliveries(String appName)
+            throws InvalidClientException{
+        return getClientSevice(appName).listDeliveries();
+    }
+
 }
