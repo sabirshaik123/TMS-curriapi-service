@@ -1,4 +1,4 @@
-package com.winsupply.tms.apps.curri.model;
+package com.winsupply.tms.contracts;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,10 +11,10 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CurriGetQuoteRequest {
-    CurriAddress origin;
-    CurriAddress destination;
+public class QuoteRequest {
+    Address origin;
+    Address destination;
     String priority;
     String deliveryMethod;
-    List<CurriItem> manifestItems;
+    List<ItemMeta> manifestItems;
 }

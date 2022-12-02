@@ -1,4 +1,4 @@
-package com.winsupply.tms.apps.curri.model;
+package com.winsupply.tms.contracts;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CurriContact {
+public class Contact {
     String name;
     String company;
     String emailAddress;

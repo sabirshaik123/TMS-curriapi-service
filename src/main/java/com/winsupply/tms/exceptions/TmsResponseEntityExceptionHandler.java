@@ -13,6 +13,7 @@ import java.util.Map;
 
 @ControllerAdvice
 public class TmsResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
+
     private ResponseEntity<Object> getResponseFromException(Exception e, HttpStatus status) {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("message", e.getMessage());

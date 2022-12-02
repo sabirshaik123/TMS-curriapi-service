@@ -1,12 +1,12 @@
 package com.winsupply.tms.controller;
 
-import com.winsupply.tms.contracts.BookDeliveryRequestBody;
-import com.winsupply.tms.contracts.BookDeliveryResponseBody;
-import com.winsupply.tms.contracts.GetQuoteRequestBody;
-import com.winsupply.tms.contracts.GetQuoteResponseBody;
+import com.winsupply.tms.contracts.DeliveryRequest;
+import com.winsupply.tms.contracts.Delivery;
+import com.winsupply.tms.contracts.QuoteRequest;
+import com.winsupply.tms.contracts.Quote;
 import com.winsupply.tms.exceptions.InvalidClientException;
 import com.winsupply.tms.service.TmsWinService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,31 +15,31 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class TmsIntegrationController {
 
-    @Autowired
-    TmsWinService tmsWinService;
+    private final TmsWinService tmsWinService;
 
     @PostMapping("/getDeliveryQuote")
-    public List<GetQuoteResponseBody> getDeliveryQuote(
+    public List<Quote> getDeliveryQuote(
             @RequestParam String appName,
-            @RequestBody GetQuoteRequestBody requestBody)
+            @RequestBody QuoteRequest requestBody)
             throws InvalidClientException {
         return tmsWinService.getDeliveryQuote(appName, requestBody);
     }
 
     @PostMapping("/bookDelivery")
-    public BookDeliveryResponseBody bookDelivery(
+    public Delivery bookDelivery(
             @RequestParam String appName,
-            @RequestBody BookDeliveryRequestBody requestBody)
+            @RequestBody DeliveryRequest requestBody)
             throws InvalidClientException {
         return tmsWinService.bookDelivery(appName, requestBody);
     }
 
     @PostMapping("/deliveries")
-    public List<BookDeliveryResponseBody> deliveries(
+    public List<Delivery> deliveries(
             @RequestParam String appName)
             throws InvalidClientException {
         return tmsWinService.listDeliveries(appName);
-    };
+    }
 }

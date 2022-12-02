@@ -1,4 +1,4 @@
-package com.winsupply.tms.apps.curri.model;
+package com.winsupply.tms.contracts;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CurriDeliveryMeta {
+public class DeliveryMeta {
     String poNumber;
     String orderNumber;
     String bolNumber;
     String pickupNote;
     String dropoffNote;
-    CurriCustomerData customerData;
+    CustomerData customerData;
 }

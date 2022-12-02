@@ -1,4 +1,4 @@
-package com.winsupply.tms.apps.curri.model;
+package com.winsupply.tms.contracts;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CurriDriver {
+public class DriverMeta {
     String firstName;
     String lastName;
     String phoneNumber;
     String profileImageUrl;
-    CurriDriverLocation lastKnownLocation;
+    DriverLocation lastKnownLocation;
 }

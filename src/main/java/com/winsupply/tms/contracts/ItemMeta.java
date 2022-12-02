@@ -1,4 +1,4 @@
-package com.winsupply.tms.apps.curri.model;
+package com.winsupply.tms.contracts;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CurriItem {
+public class ItemMeta {
     BigDecimal length;
     BigDecimal width;
     BigDecimal height;

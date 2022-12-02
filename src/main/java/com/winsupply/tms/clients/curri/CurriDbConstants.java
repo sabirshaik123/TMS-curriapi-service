@@ -1,8 +1,8 @@
-package com.winsupply.tms.apps.curri.constants;
+package com.winsupply.tms.clients.curri;
 
-public class DbConstants {
+public class CurriDbConstants {
 
-    private DbConstants(){
+    private CurriDbConstants(){
     }
 
     public static String CURRI_DELIVERY_QUOTE_QUERY = "query DeliveryQuote (" +
@@ -48,11 +48,22 @@ public class DbConstants {
                 "deliveryMethod: $deliveryMethod, " +
                 "manifestItems: $manifestItems " +
             "} ) { " +
-                "id, price, createdAt, deliveryMethod, deliveredAt " +
+                "id " +
+                "createdAt " +
+                "distance " +
+                "price " +
+                "estimatedTravelTime " +
+                "deliveryMethod " +
+                "deliveredAt " +
+                "deliveryMeta { dropoffNote pickupNote poNumber orderNumber } " +
+                "deliveryStatus { name code } " +
+                "origin { name addressLine1 addressLine2 city state postalCode latitude longitude } " +
+                "destination { name addressLine1 addressLine2 city state postalCode latitude longitude } " +
+                "driver { firstName lastName phoneNumber profileImageUrl } " +
+                "images " +
             "} }";
     public static String CURRI_LIST_DELIVERY_QUERY =
-            "query { " +
-            "deliveries { " +
+            "query { deliveries { " +
                 "id " +
                 "createdAt " +
                 "distance " +

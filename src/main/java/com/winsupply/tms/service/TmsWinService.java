@@ -1,27 +1,27 @@
 package com.winsupply.tms.service;
 
-import com.winsupply.tms.contracts.BookDeliveryRequestBody;
-import com.winsupply.tms.contracts.BookDeliveryResponseBody;
-import com.winsupply.tms.contracts.GetQuoteRequestBody;
-import com.winsupply.tms.contracts.GetQuoteResponseBody;
-import com.winsupply.tms.apps.curri.service.CurriClientService;
+import com.winsupply.tms.clients.ClientAdapter;
+import com.winsupply.tms.clients.curri.CurriAdapter;
+import com.winsupply.tms.contracts.DeliveryRequest;
+import com.winsupply.tms.contracts.Delivery;
+import com.winsupply.tms.contracts.QuoteRequest;
+import com.winsupply.tms.contracts.Quote;
 import com.winsupply.tms.exceptions.InvalidClientException;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
+@RequiredArgsConstructor
 public class TmsWinService {
 
-    @Autowired
-    private CurriClientService curriClientService;
+    private final CurriAdapter curriAdapter;
 
-    private TmsClientService getClientSevice(String appName) throws InvalidClientException {
-        TmsClientService tmsClientService = null;
+    private ClientAdapter getClientAdapter(String appName) throws InvalidClientException {
+        ClientAdapter clientAdapter = null;
         switch (appName){
             case "curri":
-                tmsClientService = this.curriClientService;
+                clientAdapter = curriAdapter;
                 break;
             case "uber":
                 break;
@@ -30,25 +30,25 @@ public class TmsWinService {
             default:
                 break;
         }
-        if(tmsClientService == null) {
+        if(clientAdapter == null) {
             throw new InvalidClientException();
         }
-        return tmsClientService;
+        return clientAdapter;
     }
 
-    public List<GetQuoteResponseBody> getDeliveryQuote(String appName, GetQuoteRequestBody requestBody)
+    public List<Quote> getDeliveryQuote(String appName, QuoteRequest requestBody)
             throws InvalidClientException {
-        return getClientSevice(appName).getDeliveryQuote(requestBody);
+        return getClientAdapter(appName).getDeliveryQuote(requestBody);
     }
 
-    public BookDeliveryResponseBody bookDelivery(String appName, BookDeliveryRequestBody requestBody)
+    public Delivery bookDelivery(String appName, DeliveryRequest requestBody)
             throws InvalidClientException{
-        return getClientSevice(appName).bookDelivery(requestBody);
+        return getClientAdapter(appName).bookDelivery(requestBody);
     }
 
-    public List<BookDeliveryResponseBody> listDeliveries(String appName)
+    public List<Delivery> listDeliveries(String appName)
             throws InvalidClientException{
-        return getClientSevice(appName).listDeliveries();
+        return getClientAdapter(appName).listDeliveries();
     }
 
 }
